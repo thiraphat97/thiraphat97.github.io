@@ -1,191 +1,177 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        /* CSS */
-        body {
-            background-color: #121212;
-            color: white;
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+    body {
+        background-color: #121212;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
 
-        header {
-            background-color: #000000;
-            padding: 10px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    header {
+        background-color: #000;
+        padding: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-        header h1 {
-            font-size: 3rem;
-            margin: 0;
-            font-weight: 600;
-            letter-spacing: 2px;
-        }
+    header h1 {
+        font-size: 3rem;
+        margin: 0;
+        font-weight: 600;
+        letter-spacing: 2px;
+    }
 
-        .navbar {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 15px;
-        }
+    .navbar {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 15px;
+    }
 
-        .navbar a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: 400;
-            font-size: 1.2rem;
-        }
+    .navbar a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: 400;
+        font-size: 1.2rem;
+    }
 
-        .navbar a:hover {
-            color: #ff4c4c;
-        }
+    .navbar a:hover { color: #ff4c4c; }
 
-        .hero {
-            background: url('images/backgroundnightsky.png') center/cover no-repeat;
-            height: 100vh;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: left;
-            background-color: rgba(0, 0, 0, 0.5);
-            width: 100%; /* เพิ่มขนาดให้เต็มหน้าจอ */
-            position: relative;
-        }
+    .hero {
+        background: url('images/backgroundnightsky.png') center/cover no-repeat;
+        height: 100vh;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: left;
+        background-color: rgba(0,0,0,0.5);
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 20px; /* เว้นระยะขอบซ้าย-ขวา */
+    }
 
-        /* hero-content ส่วนที่ใช้จัดรูปภาพและข้อความ */
+    .hero-content {
+        display: flex;
+        flex-direction: row; /* แนวนอนตามที่ต้องการสำหรับ desktop */
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1300px;
+        gap: 20px;
+    }
+
+    .hero-image {
+        width: 50%;
+        max-width: 700px;
+        height: auto;
+        border-radius: 50%;
+        object-fit: cover;
+        transition: all 0.3s ease;
+    }
+
+    .hero-text {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 50%;
+        max-width: 500px;
+    }
+
+    .hero-text h2 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin: 0;
+        white-space: nowrap;
+        text-shadow: 0 0 15px rgba(255,0,0,0.7);
+    }
+
+    .hero-text h3 {
+        font-size: 2rem;
+        margin: 0;
+        color: #ff4c4c;
+        font-weight: 400;
+        text-shadow: 0 0 10px rgba(255,255,255,0.7);
+    }
+
+    .hero-text h4 {
+        font-size: 1.8rem;
+        margin: 0;
+        color: #fff;
+        font-weight: 300;
+    }
+
+    footer {
+        background-color: #000;
+        text-align: center;
+        padding: 20px;
+        font-size: 1.2rem;
+    }
+
+    /* Tablet และ Smartphone */
+    @media (max-width: 1024px) {
+        .hero-content { flex-direction: row; } /* แนวนอนสำหรับ tablet landscape */
+        .hero-image { width: 50%; max-width: 500px; }
+        .hero-text { width: 50%; max-width: 400px; }
+    }
+
+    @media (max-width: 768px) {
         .hero-content {
-            display: flex;
-            flex-direction: column; /* จัดให้ข้อความเป็นแถวตั้ง */
-            align-items: center; /* จัดตำแหน่งข้อความและรูปให้อยู่กลาง */
-            gap: 10px;
-            width: 80%; /* กำหนดความกว้าง */
-            position: relative;
-            left: 0; /* ขยับให้ตำแหน่งอยู่ตรงกลาง */
+            flex-direction: column; /* แนวตั้งสำหรับ smartphone portrait */
+            align-items: center;
         }
-
-        .hero-image {
-            width: 100%; /* ปรับขนาดให้เต็มหน้าจอ */
-            max-width: 1100px; /* จำกัดขนาดสูงสุด */
-            height: auto;
-            border-radius: 50%;
-            object-fit: cover; /* ปรับขนาดรูปให้เต็มพื้นที่ */
-            transition: all 0.3s ease;
-        }
-
-        .hero h2 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            text-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
-            margin: 0;
-            white-space: nowrap; /* ป้องกันไม่ให้ข้อความตัดบรรทัด */
-        }
-
-        .hero h3 {
-            font-size: 2rem;
-            font-weight: 400;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-            margin: 0;
-            color: #ff4c4c;
-        }
-
-        .hero h4 {
-            font-size: 1.8rem;
-            font-weight: 300;
-            margin: 0;
-            color: #ffffff;
-        }
-
-        footer {
-            background-color: #000;
-            text-align: center;
-            padding: 20px;
-            font-size: 1.2rem;
-        }
-
-        /* สำหรับหน้าจอแท็บเล็ตและสมาร์ตโฟน */
-        @media (max-width: 768px) {
-            .hero-content {
-                width: 70%; /* เพิ่มความกว้างให้เหมาะสมกับหน้าจอมือถือ */
-                left: 0;
-            }
-
-            .hero-image {
-                width: 250%; /* ปรับขนาดให้เต็มหน้าจอ */
-                height: auto; /* ปรับอัตราส่วนรูปภาพ */
-            }
-
-            .hero h2 {
-                font-size: 2rem;
-            }
-
-            .hero h3 {
-                font-size: 1.8rem;
-            }
-
-            .hero h4 {
-                font-size: 1.5rem;
-            }
-        }
-
-        /* สำหรับหน้าจอที่มีขนาดใหญ่ขึ้น */
-        @media (min-width: 1024px) {
-            .hero-image {
-                width: 130%; /* ลดขนาดให้พอดีกับจอใหญ่ */
-            }
-        }
-    </style>
+        .hero-image { width: 90%; max-width: 400px; }
+        .hero-text { width: 90%; max-width: 350px; align-items: center; text-align: center; }
+        .hero-text h2 { white-space: normal; }
+    }
+</style>
 </head>
 <body>
 
-    <header>
-        <h1>My Portfolio</h1>
-        <nav class="navbar">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+<header>
+<h1>My Portfolio</h1>
+<nav class="navbar">
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <!-- รูปภาพ -->
-            <img id="hero-image" src="images/fruity001.png" alt="fruity001" class="hero-image">
-            <!-- ข้อความที่ต้องการ -->
+<section class="hero">
+    <div class="hero-content">
+        <img id="hero-image" src="images/fruity001.png" alt="fruity001" class="hero-image">
+        <div class="hero-text">
             <h2>Welcome to My World</h2>
             <h3>ธีรพัฒน์ ศรีมาชัย</h3>
             <h4>Thiraphat Srimachai</h4>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer>
-        <p>&copy; 2025 Thiraphat. All Rights Reserved.</p>
-    </footer>
+<footer>
+<p>&copy; 2025 Thiraphat. All Rights Reserved.</p>
+</footer>
 
-    <script>
-        const heroImage = document.getElementById('hero-image');
+<script>
+const heroImage = document.getElementById('hero-image');
 
-        // เมื่อเมาส์ไปชี้ที่รูป
-        heroImage.addEventListener('mouseenter', () => {
-            heroImage.src = 'images/fruity002.png'; // เปลี่ยน src
-        });
-
-        // เมื่อเมาส์ออกจากรูป
-        heroImage.addEventListener('mouseleave', () => {
-            heroImage.src = 'images/fruity001.png'; // กลับเป็นภาพเดิม
-        });
-    </script>
+heroImage.addEventListener('mouseenter', () => {
+    heroImage.src = 'images/fruity002.png';
+});
+heroImage.addEventListener('mouseleave', () => {
+    heroImage.src = 'images/fruity001.png';
+});
+</script>
 
 </body>
 </html>
