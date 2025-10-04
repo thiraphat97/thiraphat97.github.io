@@ -58,36 +58,51 @@
             align-items: center;
             text-align: left;
             background-color: rgba(0, 0, 0, 0.5);
+            width: 100%; /* เพิ่มขนาดให้เต็มหน้าจอ */
+            position: relative;
         }
 
         /* hero-content ส่วนที่ใช้จัดรูปภาพและข้อความ */
         .hero-content {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 17px;
-            width: 200%;
+            flex-direction: column; /* จัดให้ข้อความเป็นแถวตั้ง */
+            align-items: center; /* จัดตำแหน่งข้อความและรูปให้อยู่กลาง */
+            gap: 10px;
+            width: 80%; /* กำหนดความกว้าง */
             position: relative;
-            left: -2%; /* ขยับรูปและข้อความไปทางขวา */
+            left: 0; /* ขยับให้ตำแหน่งอยู่ตรงกลาง */
         }
 
         .hero-image {
-            width: 1300px;
+            width: 100%; /* ปรับขนาดให้เต็มหน้าจอ */
+            max-width: 1100px; /* จำกัดขนาดสูงสุด */
             height: auto;
             border-radius: 50%;
-            object-fit: cover;
-            transition: all 0.3s ease; /* เพิ่ม transition เพื่อให้การเปลี่ยนแปลงเรียบขึ้น */
+            object-fit: cover; /* ปรับขนาดรูปให้เต็มพื้นที่ */
+            transition: all 0.3s ease;
         }
 
-        /* ขยับข้อความเข้ามาใกล้รูป */
         .hero h2 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 600;
             text-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
             margin: 0;
-            position: relative;
-            left: -300px; /* ขยับข้อความเข้ามาใกล้รูป */
             white-space: nowrap; /* ป้องกันไม่ให้ข้อความตัดบรรทัด */
+        }
+
+        .hero h3 {
+            font-size: 2rem;
+            font-weight: 400;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+            margin: 0;
+            color: #ff4c4c;
+        }
+
+        .hero h4 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin: 0;
+            color: #ffffff;
         }
 
         footer {
@@ -100,20 +115,32 @@
         /* สำหรับหน้าจอแท็บเล็ตและสมาร์ตโฟน */
         @media (max-width: 768px) {
             .hero-content {
-                flex-direction: column;
-                justify-content: center;
-                text-align: center;
-                left: 0; /* ขยับให้ข้อความและรูปอยู่ตรงกลาง */
+                width: 70%; /* เพิ่มความกว้างให้เหมาะสมกับหน้าจอมือถือ */
+                left: 0;
             }
 
             .hero-image {
-                width: 900px;
+                width: 100%; /* ปรับขนาดให้เต็มหน้าจอ */
+                height: auto; /* ปรับอัตราส่วนรูปภาพ */
             }
 
             .hero h2 {
                 font-size: 2rem;
-                left: 0; /* ปรับให้ข้อความอยู่ตรงกลาง */
-                white-space: normal; /* สำหรับอุปกรณ์มือถือ ให้ข้อความยืดหยุ่น */
+            }
+
+            .hero h3 {
+                font-size: 1.8rem;
+            }
+
+            .hero h4 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* สำหรับหน้าจอที่มีขนาดใหญ่ขึ้น */
+        @media (min-width: 1024px) {
+            .hero-image {
+                width: 130%; /* ลดขนาดให้พอดีกับจอใหญ่ */
             }
         }
     </style>
@@ -133,10 +160,12 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <!-- ใช้ src ให้ถูกต้อง -->
+            <!-- รูปภาพ -->
             <img id="hero-image" src="images/fruity001.png" alt="fruity001" class="hero-image">
-            <!-- ข้อความที่คุณต้องการ -->
+            <!-- ข้อความที่ต้องการ -->
             <h2>Welcome to My World</h2>
+            <h3>ธีรพัฒน์ ศรีมาชัย</h3>
+            <h4>Thiraphat Srimachai</h4>
         </div>
     </section>
 
