@@ -1,177 +1,213 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-    body {
-        background-color: #121212;
-        color: white;
-        font-family: 'Poppins', sans-serif;
-        margin: 0;
-        padding: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- เรียกใช้ไฟล์ Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    header {
-        background-color: #000;
-        padding: 10px;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden; /* ป้องกันการเลื่อนแนวนอน */
+        }
 
-    header h1 {
-        font-size: 3rem;
-        margin: 0;
-        font-weight: 600;
-        letter-spacing: 2px;
-    }
-
-    .navbar {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        margin-top: 15px;
-    }
-
-    .navbar a {
-        text-decoration: none;
-        color: #fff;
-        font-weight: 400;
-        font-size: 1.2rem;
-    }
-
-    .navbar a:hover { color: #ff4c4c; }
-
-    .hero {
-        background: url('images/backgroundnightsky.png') center/cover no-repeat;
-        height: 100vh;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: left;
-        background-color: rgba(0,0,0,0.5);
-        width: 100%;
-        box-sizing: border-box;
-        padding: 0 20px; /* เว้นระยะขอบซ้าย-ขวา */
-    }
-
-    .hero-content {
-        display: flex;
-        flex-direction: row; /* แนวนอนตามที่ต้องการสำหรับ desktop */
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        max-width: 1300px;
-        gap: 20px;
-    }
-
-    .hero-image {
-        width: 50%;
-        max-width: 700px;
-        height: auto;
-        border-radius: 50%;
-        object-fit: cover;
-        transition: all 0.3s ease;
-    }
-
-    .hero-text {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        width: 50%;
-        max-width: 500px;
-    }
-
-    .hero-text h2 {
-        font-size: 2.5rem;
-        font-weight: 600;
-        margin: 0;
-        white-space: nowrap;
-        text-shadow: 0 0 15px rgba(255,0,0,0.7);
-    }
-
-    .hero-text h3 {
-        font-size: 2rem;
-        margin: 0;
-        color: #ff4c4c;
-        font-weight: 400;
-        text-shadow: 0 0 10px rgba(255,255,255,0.7);
-    }
-
-    .hero-text h4 {
-        font-size: 1.8rem;
-        margin: 0;
-        color: #fff;
-        font-weight: 300;
-    }
-
-    footer {
-        background-color: #000;
-        text-align: center;
-        padding: 20px;
-        font-size: 1.2rem;
-    }
-
-    /* Tablet และ Smartphone */
-    @media (max-width: 1024px) {
-        .hero-content { flex-direction: row; } /* แนวนอนสำหรับ tablet landscape */
-        .hero-image { width: 50%; max-width: 500px; }
-        .hero-text { width: 50%; max-width: 400px; }
-    }
-
-    @media (max-width: 768px) {
-        .hero-content {
-            flex-direction: column; /* แนวตั้งสำหรับ smartphone portrait */
+        header {
+            background-color: #000;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
             align-items: center;
         }
-        .hero-image { width: 90%; max-width: 400px; }
-        .hero-text { width: 90%; max-width: 350px; align-items: center; text-align: center; }
-        .hero-text h2 { white-space: normal; }
-    }
-</style>
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 400;
+            font-size: 1.2rem;
+        }
+
+        .navbar a:hover {
+            color: #ff4c4c;
+        }
+
+        .hero {
+            background: url('images/backgroundnightsky.png') center/cover no-repeat;
+            height: 100vh;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            padding: 0 20px; /* เว้นระยะขอบซ้าย-ขวา */
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* จัดให้อยู่กลาง */
+            gap: 20px;
+            width: 100%;
+            max-width: 1300px;
+            position: relative;
+            transition: left 0.3s ease;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 700px; /* ปรับขนาดสูงสุดใน desktop */
+            height: auto;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            width: 100%;
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+            text-align: center; /* ทำให้ข้อความอยู่กลาง */
+        }
+
+        .hero-text h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        .hero-text h3 {
+            font-size: 2rem;
+            font-weight: 400;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+            margin: 0;
+            color: #ffffff;
+        }
+
+        .hero-text h4 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin: 0;
+            color: #ffffff;
+        }
+
+        footer {
+            background-color: #000;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.2rem;
+        }
+
+        /* สำหรับหน้าจอแท็บเล็ตและสมาร์ตโฟน */
+        @media (max-width: 1024px) {
+            .hero-content {
+                flex-direction: column; /* เปลี่ยนเป็นแนวตั้งใน tablet */
+            }
+            .hero-image {
+                width: 80%;
+                max-width: 600px;
+            }
+            .hero-text {
+                width: 90%;
+                max-width: 400px;
+                text-align: center; /* จัดข้อความให้อยู่กลาง */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column; /* แนวตั้งสำหรับ smartphone portrait */
+                align-items: center;
+            }
+            .hero-image {
+                width: 100%;
+                max-width: 450px;
+                object-fit: contain; /* ให้รูปภาพย่อขนาดให้พอดีกับหน้าจอ */
+            }
+            .hero-text {
+                width: 100%;
+                max-width: 800px;
+                align-items: center;
+                text-align: center;
+            }
+            .hero-text h2 {
+                white-space: normal;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-<h1>My Portfolio</h1>
-<nav class="navbar">
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
-</nav>
-</header>
+    <header>
+        <h1>My Portfolio</h1>
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-<section class="hero">
-    <div class="hero-content">
-        <img id="hero-image" src="images/fruity001.png" alt="fruity001" class="hero-image">
-        <div class="hero-text">
-            <h2>Welcome to My World</h2>
-            <h3>ธีรพัฒน์ ศรีมาชัย</h3>
-            <h4>Thiraphat Srimachai</h4>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <img id="hero-image" src="images/fruity001.png" alt="fruity001" class="hero-image">
+            <div class="hero-text">
+                <h2>Welcome to My World</h2>
+                <h3>ธีรพัฒน์ ศรีมาชัย</h3>
+                <h4>Thiraphat Srimachai</h4>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<footer>
-<p>&copy; 2025 Thiraphat. All Rights Reserved.</p>
-</footer>
+    <footer>
+        <p>&copy; 2025 Thiraphat. All Rights Reserved.</p>
+    </footer>
 
-<script>
-const heroImage = document.getElementById('hero-image');
+    <script>
+        const heroImage = document.getElementById('hero-image');
 
-heroImage.addEventListener('mouseenter', () => {
-    heroImage.src = 'images/fruity002.png';
-});
-heroImage.addEventListener('mouseleave', () => {
-    heroImage.src = 'images/fruity001.png';
-});
-</script>
+        // เมื่อเมาส์ไปชี้ที่รูป
+        heroImage.addEventListener('mouseenter', () => {
+            heroImage.src = 'images/fruity002.png'; // เปลี่ยน src
+        });
+
+        // เมื่อเมาส์ออกจากรูป
+        heroImage.addEventListener('mouseleave', () => {
+            heroImage.src = 'images/fruity001.png'; // กลับเป็นภาพเดิม
+        });
+    </script>
 
 </body>
 </html>
