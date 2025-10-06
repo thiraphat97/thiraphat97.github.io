@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <!-- เรียกใช้ไฟล์ Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- เรียกใช้ฟอนต์ Kanit แบบตัวหนา -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
         /* CSS */
         * {
@@ -24,7 +27,7 @@
 
         header {
             background-color: #000;
-            padding: 10px;
+            padding: 20px;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -47,9 +50,9 @@
 
         .navbar a {
             text-decoration: none;
-            color: #fff;
-            font-weight: 400;
-            font-size: 1.2rem;
+            color: #ffffff;
+            font-weight: 300;
+            font-size: 1rem;
         }
 
         .navbar a:hover {
@@ -97,6 +100,13 @@
             position: relative;
             z-index: 2;
             text-align: center; /* ทำให้ข้อความอยู่กลาง */
+        }
+
+        /* ฟอนต์ตัวหนาเฉพาะภาษาไทยใน h3 */
+        .kanit-bold {
+            font-family: "Kanit", sans-serif;
+            font-weight: 700; /* ใช้ตัวหนา */
+            font-style: normal;
         }
 
         .hero-text h2 {
@@ -165,6 +175,32 @@
                 white-space: normal;
             }
         }
+
+        /* สำหรับจอมือถือในแนวนอน (Mobile Landscape) */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .hero-image {
+                width: 80%; /* ลดขนาดรูปให้พอดีกับจอมือถือแนวนอน */
+                max-width: 300px;
+            }
+
+            .hero-text {
+                width: 100%;
+                max-width: 350px;
+                text-align: center; /* ทำให้ข้อความอยู่กลาง */
+            }
+
+            .hero-text h2 {
+                font-size: 1rem; /* ลดขนาดข้อความในแนวนอน */
+            }
+
+            .hero-text h3 {
+                font-size: 1rem;
+            }
+
+            .hero-text h4 {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -185,7 +221,7 @@
             <img id="hero-image" src="images/fruity001.png" alt="fruity001" class="hero-image">
             <div class="hero-text">
                 <h2>Welcome to My World</h2>
-                <h3>ธีรพัฒน์ ศรีมาชัย</h3>
+                <h3 class="kanit-bold">ธีรพัฒน์ ศรีมาชัย</h3>
                 <h4>Thiraphat Srimachai</h4>
             </div>
         </div>
