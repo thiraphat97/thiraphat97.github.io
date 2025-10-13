@@ -201,6 +201,38 @@
                 font-size: 1rem;
             }
         }
+        /* สำหรับมือถือแนวนอน (Mobile Landscape) */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .hero {
+             height: auto; /* ให้ Hero Section ขยายตามเนื้อหา */
+             padding-top: 80px; /* เว้นพื้นที่ด้านบนให้ไม่บัง header */
+            }
+
+            .hero-image {
+             width: 70%; /* ลดขนาดรูป */
+             max-width: 350px; /* จำกัดขนาดสูงสุด */
+             object-fit: contain;
+            }
+
+            .hero-text {
+             width: 90%;
+             max-width: 300px;
+             text-align: center;
+            }
+
+            .hero-text h2 {
+             font-size: 1.2rem; /* ลดขนาดข้อความ */
+            }
+
+            .hero-text h3 {
+             font-size: 1rem;
+            }
+
+            .hero-text h4 {
+             font-size: 0.9rem;
+            }
+        }
+
     </style>
 </head>
 <body>
